@@ -8,4 +8,5 @@ app_name = "account"
 urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("signin/", LoginView.as_view(template_name="signin.html", next_page="post:index"), name="signin"),
+    path("signout/", LogoutView.as_view(next_page="account:signin"), name="signout"),
 ]

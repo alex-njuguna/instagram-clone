@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import login, logout, authenticate
 
-from .forms import SignUpForm
+from .forms import SignUpForm, SignInForm
 
 
 def signup(request):
@@ -11,9 +12,9 @@ def signup(request):
 
         if form.is_valid():
             form.save()
-            email = form.cleaned_data.get("email")
-            messages.success(request, f"Account created successfully for {email}!")
-            return redirect("home")  # Replace "home" with the URL or name of the view where you want to redirect after successful registration
+            username = form.cleaned_data.get("username")
+            messages.success(request, f"Account created successfully for {username}!")
+            return redirect("post:index")
         else:
             messages.error(request, "Error creating account. Please check the form.")
 
@@ -23,6 +24,7 @@ def signup(request):
     return render(request, "signup.html", {
         "form": form,
     })
+
 
 
 

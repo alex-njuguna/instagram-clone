@@ -7,10 +7,10 @@ from django.contrib.auth.models import User
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ["email", "password1", "password2"]
+        fields = ["username", "password1", "password2"]
 
         widgets = {
-            "email": forms.TextInput(attrs={
+            "username": forms.TextInput(attrs={
                 "class": "form-control"
             }),
              "password1": forms.PasswordInput(attrs={
@@ -19,4 +19,19 @@ class SignUpForm(UserCreationForm):
             "password2": forms.PasswordInput(attrs={
                 "class": "form-control"
             }),
+        }
+
+"""sign in form"""
+class SignInForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["username", "password"]
+
+        widgets = {
+            "username": forms.TextInput(attrs={
+                "class": "form-control"
+            }),
+             "password": forms.PasswordInput(attrs={
+                "class": "form-control"
+            }), 
         }

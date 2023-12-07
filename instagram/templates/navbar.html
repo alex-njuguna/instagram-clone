@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'post:index' %}">
       <img src="{% static 'images/logo.jpeg' %}" width=40px alt="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">
+          <a class="nav-link active" aria-current="page" href="{% url 'post:index' %}">
             <i class="fa-solid fa-house"></i> Home
           </a>
         </li>
